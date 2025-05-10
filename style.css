@@ -1,0 +1,48 @@
+body {
+    background: whitesmoke;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: bisque;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  input {
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: burlywood;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #qrcode {
+    margin-top: 20px;
+  }
+  
+  // Add after QR code is created
+const img = qrContainer.querySelector('img') || qrContainer.querySelector('canvas');
+if (img) {
+  const downloadBtn = document.createElement('a');
+  downloadBtn.textContent = "Download QR";
+  downloadBtn.href = img.src || img.toDataURL();
+  downloadBtn.download = "qrcode.png";
+  downloadBtn.className = "download-btn";
+  qrContainer.appendChild(downloadBtn);
+}
